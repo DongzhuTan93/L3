@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { fetchAndCalculateWeatherData } from "./weather-module/src/app.js"
+import './App.css'
 
 
 function App() {
@@ -36,26 +37,34 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        placeholder="Enter city name"
-      />
-      <input
-        type="text"
-        value={country}
-        onChange={(e) => setCountry(e.target.value)}
-        placeholder="Please enter capital letters！"
-      />
-      <button onClick={handleWeatherFetch}>Get Weather</button>
-      <p>Opps!! Please enter the city code in capital letters (For example 'GB' for the United Kingdom, 'SE' for Sweden, and 'US' for the United States)</p>
-       <p>The result is:</p>
-       <p>{temperatureData}</p> {/* Render the temperature data */}
-       <p>{humidityData}</p> {/* Render the humidity data */}
-       <p>{windSpeedData}</p> {/* Render the wind speed data */}
-       <p>{rainfallData}</p> {/* Render the rain fall data */}
-      {error && <div className="error-message">{error}</div>}
+      <header className="App-header">
+        <h1>Weather Forecast</h1>
+      </header>
+      <div className="form-container">
+        <input
+          className="input-field"
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          placeholder="Enter city name"
+        />
+        <input
+          className="input-field"
+          type="text"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          placeholder="Country code (e.g. 'US')！"
+        />
+        <button onClick={handleWeatherFetch}>Get Weather</button>
+      </div>
+      <p>Opps!! Please enter the country code in capital letters (For example 'GB' for the United Kingdom, 'SE' for Sweden, and 'US' for the United States)</p>
+      <div className="results-container">
+        <p>{temperatureData}</p>
+        <p>{humidityData}</p>
+        <p>{windSpeedData}</p>
+        <p>{rainfallData}</p>
+        {error && <div className="error-message">{error}</div>}
+      </div>
     </div>
   )
 }
