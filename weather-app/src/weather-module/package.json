@@ -1,0 +1,36 @@
+{
+  "name": "laboration-2",
+  "version": "1.0.0",
+  "description": "1DV610 - Laboration 2",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DongzhuTan93/L2.git"
+  },
+  "author": "Dongzhu Tan <dt222ha@student.lnu.se>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DongzhuTan93/L2/issues"
+  },
+  "homepage": "https://github.com/DongzhuTan93/L2#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsdom": "^22.1.0",
+    "node-fetch": "^3.3.2",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "@lnu/eslint-config": "^1.1.10",
+    "eslint": "^8.54.0",
+    "nodemon": "^3.0.1"
+  }
+}
