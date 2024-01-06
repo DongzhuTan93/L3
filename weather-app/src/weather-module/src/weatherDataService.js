@@ -9,7 +9,7 @@ export class WeatherDataService {
    */
   constructor (apiKey) {
     this.apiKey = apiKey
-    this.baseUrl = 'https://api.openweathermap.org/' // Set the base URL for the API
+    this.baseUrl = 'https://api.openweathermap.org/'
   }
 
   /**
