@@ -34,4 +34,4 @@ Start using our Weather Forecast Application today to stay informed about the we
 
 
 ### Home page:
-![Home page](public/home-page-readme.png)
+![Home page](/home-page-readme.png)
