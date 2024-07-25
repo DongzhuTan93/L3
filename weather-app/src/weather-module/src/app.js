@@ -25,6 +25,7 @@ export const fetchAndCalculateWeatherData = async (city, country) => {
     const weatherData = await weatherFetcher.fetchWeatherData(coordinates.lat, coordinates.lon)
 
     const weatherDataList = weatherData.list
+    console.log('The days: ' + weatherDataList.length)
 
     const temperaturesInKelvin = weatherDataList.map(item => item.main.temp)
     const humidities = weatherDataList.map(item => item.main.humidity)

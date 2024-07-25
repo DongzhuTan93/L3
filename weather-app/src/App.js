@@ -1,72 +1,97 @@
-import React, { useState } from 'react'
-import { fetchAndCalculateWeatherData } from "./weather-module/src/app.js"
-import './App.css'
-
+import React, { useState } from 'react';
+import { fetchAndCalculateWeatherData } from "./weather-module/src/app.js";
+import './App.css';
+import { WiThermometer, WiHumidity, WiStrongWind, WiRain } from 'react-icons/wi';
+import logo from './images/logo.png';
 
 function App() {
-  const [city, setCity] = useState('')
-  const [country, setCountry] = useState('')
-  const [error, setError] = useState('')
-  const [temperatureData, setTemperatureData] = useState('')
-  const [humidityData, setHumidityData] = useState('')
-  const [windSpeedData, setWindSpeedData] = useState('')
-  const [rainfallData, setRainfallData] = useState('')
-
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const [error, setError] = useState('');
+  const [weatherData, setWeatherData] = useState(null);
 
   const handleWeatherFetch = async () => {
     if (!city || !country) {
-      setError('City and country must be provided！')
-      return // Exit the function if city or country is empty
+      setError('City and country must be provided!');
+      return;
     }
 
     try {
-      setError('') // Clear any previous errors
-
-      console.log('Submitting city: ' + city)
-      console.log('Submitting country: ' + country)
-      const moduleResult = await fetchAndCalculateWeatherData(city, country) // Await the async call
-      setTemperatureData(`The average temperature for the next 40 days at ` + city + ` is around : ${moduleResult.averageTemperature} °K, which is ${moduleResult.averageTemperatureInCelsius} °C.`)
-      setHumidityData(`The average humidity for the next 40 days at ` + city + ` is around : ${moduleResult.averageHumidity} %.`)
-      setWindSpeedData(`The average windSpeed for the next 40 days at ` + city + ` is around : ${moduleResult.averageWindSpeed} m/s.`)
-      setRainfallData(`The average rainfall for the next 40 days at ` + city + ` is around : ${moduleResult.maxRainfall} mm.`)
+      setError('');
+      const moduleResult = await fetchAndCalculateWeatherData(city, country);
+      setWeatherData({
+        temperature: {
+          value: moduleResult.averageTemperatureInCelsius,
+          unit: '°C',
+          icon: <WiThermometer />,
+          label: 'Temperature'
+        },
+        humidity: {
+          value: moduleResult.averageHumidity,
+          unit: '%',
+          icon: <WiHumidity />,
+          label: 'Humidity'
+        },
+        windSpeed: {
+          value: moduleResult.averageWindSpeed,
+          unit: 'm/s',
+          icon: <WiStrongWind />,
+          label: 'Wind Speed'
+        },
+        rainfall: {
+          value: moduleResult.maxRainfall,
+          unit: 'mm',
+          icon: <WiRain />,
+          label: 'Rainfall'
+        }
+      });
     } catch (error) {
-      console.error(error)
-      setError("Sorry, we couldn't fetch the weather data. Please try again later.")
+      console.error(error);
+      setError("Sorry, we couldn't fetch the weather data. Please try again later.");
     }
-  }
+  };
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather Forecast</h1>
-      </header>
-      <div className="form-container">
-        <input
-          className="input-field"
-          type="text"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder="Enter city name"
-        />
-        <input
-          className="input-field"
-          type="text"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          placeholder="Country code (e.g. 'US')！"
-        />
-        <button onClick={handleWeatherFetch}>Get Weather</button>
-      </div>
-      <p>Opps!! Please enter the country code in capital letters (For example 'GB' for the United Kingdom, 'SE' for Sweden, and 'US' for the United States)</p>
-      <div className="results-container">
-        <p>{temperatureData}</p>
-        <p>{humidityData}</p>
-        <p>{windSpeedData}</p>
-        <p>{rainfallData}</p>
+      <div className="content-wrapper">
+        <header className="App-header">
+          <img src={logo} alt="Logo" className="App-logo" />
+          <h1>Weather Forecast</h1>
+        </header>
+        <div className="form-container">
+          <input
+            className="input-field"
+            type="text"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            placeholder="Enter city name (Kalmar, London, Beijing...)"
+          />
+          <input
+            className="input-field"
+            type="text"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            placeholder="Country code ('SE, UK, US, CN...')"
+          />
+          <button onClick={handleWeatherFetch}>Get Weather</button>
+        </div>
         {error && <div className="error-message">{error}</div>}
+        {weatherData && (
+          <div className="weather-container">
+            {Object.entries(weatherData).map(([key, data], index) => (
+              <div key={key} className={`weather-card weather-card-${index + 1}`}>
+                <div className="weather-city">{city}</div>
+                <div className="weather-icon">{data.icon}</div>
+                <div className="weather-value">{data.value}{data.unit}</div>
+                <div className="weather-type">{data.label}</div>
+                <div className="weather-bottom"><p>Average {data.label} forecast for the next 40 days</p></div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

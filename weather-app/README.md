@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Weather Forecast Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Weather Forecast Application! This user-friendly tool allows you to obtain a comprehensive 40-day weather forecast for any city worldwide. By leveraging data from the OpenWeatherMap API, our application processes and presents average weather conditions in an intuitive and visually appealing interface.
 
-## Available Scripts
+## Key Features:
 
-In the project directory, you can run:
+- **Global Coverage**: Search for any city across the globe using the city's name and the corresponding country code.
+- **Detailed Forecasts**: Receive average weather data for the next 40 days, including temperature, humidity, wind speed, and rainfall.
+- **Data Visualization**: Weather data is displayed in colorful, easy-to-read cards, making it simple to understand at a glance.
+- **User-Friendly Interface**: The clean and modern design ensures a seamless user experience, whether you're a casual user or a weather enthusiast.
 
-### `npm start`
+## How It Works:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Input**: Enter the desired city's name and the country's code in the search fields.
+2. **Data Retrieval**: Our application fetches the latest weather data from the OpenWeatherMap API.
+3. **Data Processing**: The received data is averaged over 40 days to provide a reliable long-term forecast.
+4. **Presentation**: The processed data is displayed in vibrant, color-coded cards, each representing a different weather parameter.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Example Usage:
 
-### `npm test`
+- **City**: Kalmar
+- **Country Code**: SE (Sweden)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Upon entering "Kalmar" and "SE" into the search fields, you'll receive an average forecast for temperature, humidity, wind speed, and rainfall in Kalmar over the next 40 days. The data is presented in neatly arranged cards, with each card highlighting a specific weather metric.
 
-### `npm run build`
+## Why Use Our Application?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Accurate Forecasts**: By using average data, our application provides a reliable overview of future weather conditions.
+- **Visual Appeal**: The colorful and modern design makes the weather information accessible and enjoyable to read.
+- **Ease of Use**: Simple search functionality ensures that you can quickly find the weather forecast for any city.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Start using our Weather Forecast Application today to stay informed about the weather conditions in your city or any other city around the world!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Home page:
+![Home page](public/home-page-readme.png)
