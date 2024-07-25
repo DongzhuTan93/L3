@@ -24,7 +24,7 @@ body, html {
 }
 
 .App-header {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.3);
   color:dimgrey;
   padding: 20px;
   margin-bottom: 20px;
@@ -36,6 +36,10 @@ body, html {
 
 .App-header h1 {
   margin-left: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3em;
+  color:black;
+  font-weight: bold;
 }
 
 .App-logo {
