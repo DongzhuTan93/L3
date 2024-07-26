@@ -1,10 +1,10 @@
 {
     "apps" : [
       {
-        "name"          : "react-hh:3000",
+        "name"          : "weather:3005",
         "script"        : "npx",
         "interpreter"   : "none",
-        "args"          : "serve -s build -p 3000"
+        "args"          : "serve -s build -p 3005"
       }
     ]
   }
