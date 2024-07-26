@@ -1,11 +1,16 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+body {
   background-image: url("./images/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-attachment: fixed;
 }
 
 .App {
@@ -25,21 +30,24 @@ body, html {
 
 .App-header {
   background-color: rgba(255, 255, 255, 0.3);
-  color:dimgrey;
+  color: dimgrey;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .App-header h1 {
   margin-left: 10px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 3em;
-  color:black;
+  color: black;
   font-weight: bold;
+  text-align: center;
 }
 
 .App-logo {
@@ -60,14 +68,23 @@ body, html {
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 10px;
-  flex: 1;
+  flex: 1 1 300px;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  height: auto;
+}
+
+.input-field::placeholder {
+  white-space: normal;
+  overflow: visible;
 }
 
 button {
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
-  background-color:limegreen;
+  background-color: limegreen;
   color: white;
   cursor: pointer;
   margin: 10px;
@@ -75,7 +92,7 @@ button {
 }
 
 button:hover {
-  background-color:#45a049;
+  background-color: #45a049;
 }
 
 .instruction {
@@ -165,4 +182,34 @@ button:hover {
 .weather-bottom {
   font-size: 12px;
   text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: auto 100%;
+  }
+
+  .App-header h1 {
+    font-size: 2em;
+  }
+
+  .input-field {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    background-size: auto 100%;
+  }
+
+  .App-header h1 {
+    font-size: 1.5em;
+  }
+
+  .input-field {
+    font-size: 12px;
+  }
+
+
 }
