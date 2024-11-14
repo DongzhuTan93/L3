@@ -11,7 +11,7 @@ export class WeatherModule {
    * @param {Array} rainfall The input rainfall data.
    */
   constructor (temperaturesInKelvin, humidities, windSpeeds, rainfall) {
-    console.log('The total temperature set in the WeatherModule constructor is :' + temperaturesInKelvin)
+    console.log('The total temperature set in the WeatherModule constructor is: ' + temperaturesInKelvin)
     this.temperaturesInKelvin = temperaturesInKelvin
     this.humidities = humidities
     this.windSpeeds = windSpeeds
@@ -48,20 +48,6 @@ export class WeatherModule {
    */
   calculateAverageTemperature () {
     return this.#calculateAverage(this.temperaturesInKelvin, 'temperature')
-
-    /* try {
-      const temperaturesInKelvinSum = this.temperaturesInKelvin.reduce((acc, curr) => acc + curr, 0)
-      // Inspiration: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
-      const averageTemperatureKelvin = temperaturesInKelvinSum / this.temperaturesInKelvin.length
-      console.log('Temperatures In Kelvin Sum is: ' + temperaturesInKelvinSum)
-      console.log('Average temperatures is around: ' + temperaturesInKelvinSum + '/' + this.temperaturesInKelvin.length + ' = ' + averageTemperatureKelvin + 'K')
-      // Calculation results are kept to one decimal place.
-      return Number(averageTemperatureKelvin.toFixed(1))
-    } catch (error) {
-      console.error('Error calculating average temperature:', error)
-      // Handle error appropriately or rethrow to be handled by the caller
-      throw new Error('Failed to calculate average temperature')
-    } */
   }
 
   /**
@@ -71,17 +57,6 @@ export class WeatherModule {
    */
   calculateAverageHumidity () {
     return this.#calculateAverage(this.humidities, 'humidity')
-
-    /* try {
-      const humiditySum = this.humidities.reduce((acc, curr) => acc + curr, 0)
-      const averageHumidity = humiditySum / this.humidities.length
-      console.log('Humidity Sum is: ' + humiditySum)
-      console.log('Average humidity is around: ' + humiditySum + '/' + this.humidities.length + ' = ' + averageHumidity)
-      return Number(averageHumidity.toFixed(1))
-    } catch (error) {
-      console.error('Error calculating average humidity:', error)
-      throw new Error('Failed to calculate average humidity')
-    } */
   }
 
   /**
@@ -91,19 +66,6 @@ export class WeatherModule {
    */
   calculateAverageWindSpeed () {
     return this.#calculateAverage(this.windSpeeds, 'wind speed')
-
-    /* try {
-      const windSpeedSum = this.windSpeeds.reduce((acc, curr) => acc + curr, 0)
-
-      const averageWindSpeed = windSpeedSum / this.windSpeeds.length
-      console.log('Wind Speed Sum is: ' + windSpeedSum)
-      console.log('Average humidity is: ' + windSpeedSum + '/' + this.windSpeeds.length + ' = ' + Number(averageWindSpeed.toFixed(1)))
-
-      return Number(averageWindSpeed.toFixed(1))
-    } catch (error) {
-      console.error('Error calculating average temperature:', error)
-      throw new Error('Failed to calculate average temperature')
-    } */
   }
 
   /**
