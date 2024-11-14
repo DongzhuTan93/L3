@@ -11,11 +11,34 @@ export class WeatherModule {
    * @param {Array} rainfall The input rainfall data.
    */
   constructor (temperaturesInKelvin, humidities, windSpeeds, rainfall) {
-    console.log('Toatl tempera at weathermodule constructor is :' + temperaturesInKelvin)
+    console.log('The total temperature set in the WeatherModule constructor is :' + temperaturesInKelvin)
     this.temperaturesInKelvin = temperaturesInKelvin
     this.humidities = humidities
     this.windSpeeds = windSpeeds
     this.rainfall = rainfall
+  }
+
+  /**
+   * Private method to calculate average of an array of weather measurements.
+   *
+   * @param {Array} measurements  Array of numerical weather measurements.
+   * @param {string} metricType  Type of weather metric being calculated (e.g., 'temperature', 'humidity').
+   * @returns {number} The calculated average, rounded to one decimal.
+   */
+  #calculateAverage (measurements, metricType) {
+    try {
+      const measurementTotal = measurements.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+      const measurementCount = measurements.length
+      const measurementAverage = measurementTotal / measurementCount
+
+      console.log(`${metricType} Total: ${measurementTotal}`)
+      console.log(`Average ${metricType}: ${measurementTotal}/${measurementCount} = ${measurementAverage}`)
+
+      return Number(measurementAverage.toFixed(1))
+    } catch (error) {
+      console.error(`Error calculating average ${metricType}:`, error)
+      throw new Error(`Failed to calculate average ${metricType}`)
+    }
   }
 
   /**
@@ -24,7 +47,9 @@ export class WeatherModule {
    * @returns {number} 40 days average temperatures in celsius.
    */
   calculateAverageTemperature () {
-    try {
+    return this.#calculateAverage(this.temperaturesInKelvin, 'temperature')
+
+    /* try {
       const temperaturesInKelvinSum = this.temperaturesInKelvin.reduce((acc, curr) => acc + curr, 0)
       // Inspiration: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
       const averageTemperatureKelvin = temperaturesInKelvinSum / this.temperaturesInKelvin.length
@@ -36,7 +61,7 @@ export class WeatherModule {
       console.error('Error calculating average temperature:', error)
       // Handle error appropriately or rethrow to be handled by the caller
       throw new Error('Failed to calculate average temperature')
-    }
+    } */
   }
 
   /**
@@ -45,7 +70,9 @@ export class WeatherModule {
    * @returns {number} 40 days average humidity.
    */
   calculateAverageHumidity () {
-    try {
+    return this.#calculateAverage(this.humidities, 'humidity')
+
+    /* try {
       const humiditySum = this.humidities.reduce((acc, curr) => acc + curr, 0)
       const averageHumidity = humiditySum / this.humidities.length
       console.log('Humidity Sum is: ' + humiditySum)
@@ -54,7 +81,7 @@ export class WeatherModule {
     } catch (error) {
       console.error('Error calculating average humidity:', error)
       throw new Error('Failed to calculate average humidity')
-    }
+    } */
   }
 
   /**
@@ -63,7 +90,9 @@ export class WeatherModule {
    * @returns {number} 40 days average wind speed.
    */
   calculateAverageWindSpeed () {
-    try {
+    return this.#calculateAverage(this.windSpeeds, 'wind speed')
+
+    /* try {
       const windSpeedSum = this.windSpeeds.reduce((acc, curr) => acc + curr, 0)
 
       const averageWindSpeed = windSpeedSum / this.windSpeeds.length
@@ -74,7 +103,7 @@ export class WeatherModule {
     } catch (error) {
       console.error('Error calculating average temperature:', error)
       throw new Error('Failed to calculate average temperature')
-    }
+    } */
   }
 
   /**
