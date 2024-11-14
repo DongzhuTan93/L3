@@ -31,6 +31,10 @@ Upon entering "Kalmar" and "SE" into the search fields, you'll receive an averag
 
 Start using our Weather Forecast Application today to stay informed about the weather conditions in your city or any other city around the world!
 
+## Deploy
+
+- **https://weatherforecast.dongzhutan.com/**
+
 
 
 ### Home page:
