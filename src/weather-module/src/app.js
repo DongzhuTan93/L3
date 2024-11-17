@@ -38,6 +38,7 @@ export const fetchAndCalculateWeatherData = async (city, country) => {
     const averageHumidity = await weatherModule.calculateAverageHumidity()
     const averageWindSpeed = await weatherModule.calculateAverageWindSpeed()
     const maxRainfall = await weatherModule.calculateMaximumRainfall(rainfall)
+
     return {
       averageTemperature,
       averageTemperatureInCelsius,

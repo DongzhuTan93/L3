@@ -30,7 +30,9 @@ export class WeatherDataService {
         throw new Error('No API key found')
       }
 
-      const url = `${this.baseUrl}/geo/1.0/direct?q=${encodeURIComponent(city)},${encodeURIComponent(country)}&limit=1&appid=${this.apiKey}`
+      const url = `${this.baseUrl}/geo/1.0/direct?q=${encodeURIComponent(city)},
+      ${encodeURIComponent(country)}&limit=1&appid=${this.apiKey}`
+
       const response = await fetch(url)
       console.log(url)
 
@@ -44,7 +46,10 @@ export class WeatherDataService {
         throw new Error('City not found or invalid country code')
       }
 
-      const matchedLocation = data.find(location => location.name.toLowerCase() === city.toLowerCase() && location.country.toLowerCase() === country.toLowerCase())
+      const matchedLocation = data.find(
+        location => location.name.toLowerCase() === city.toLowerCase() &&
+        location.country.toLowerCase() === country.toLowerCase()
+      )
 
       if (!matchedLocation) {
         throw new Error(`No matching location found for ${city}, ${country}`)

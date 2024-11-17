@@ -28,6 +28,7 @@ export class WeatherModule {
   #calculateAverage (measurements, metricType) {
     try {
       const measurementTotal = measurements.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+      // Inspiration: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
       const measurementCount = measurements.length
       const measurementAverage = measurementTotal / measurementCount
 
